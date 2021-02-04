@@ -1,4 +1,4 @@
 # Note App
-Приложение для заметок
-Back end - Django REST Framework
-Front end - Vue.js
+Приложение для заметок<br/>
+Back end - Django REST Framework<br/>
+Front end - Vue.js<br/>
