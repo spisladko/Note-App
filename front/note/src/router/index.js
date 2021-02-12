@@ -5,6 +5,8 @@ import VueRouter from 'vue-router'
 // которым будем навигировать пользователя
 import Login from '@/views/Login.vue'
 import Notes from '@/views/Notes.vue'
+import Note from '@/views/Note.vue'
+import NoteEdit from '@/views/NoteEdit.vue'
 import Register from '@/views/Register.vue'
 import CreateNote from '@/views/CreateNote.vue'
 
@@ -31,6 +33,18 @@ const routes = [
     path: '/create',
     name: 'CreateNote',
     component: CreateNote
+  },
+  {
+    path: '/notes/:noteId',
+    name: 'Note',
+    component: Note,
+    props: true
+  },
+  {
+    path: '/notes/:noteId/edit',
+    name: 'NoteEdit',
+    component: NoteEdit,
+    props: true
   }
 ]
 

@@ -5,16 +5,13 @@
         <button class="log-button" @click="createNote">Новая заметка</button>
         <button class="log-button" @click="logOut">Выйти</button>
       </div>
+      <hr>
     <div v-for="note in notes" v-bind:key="note.id" class="list">
       <ul>
-      <li><strong>{{ note.name }}</strong><br></li>
+      <li><strong>{{ note.name }}</strong><br></li> <router-link :to="{ name: 'Note', params: { noteId: note.id }}">Подробнее</router-link>
       </ul>
-      {{ note.description }}<br>
-      <h4>Заметка создана {{ `${note.creation_date.slice(8,10)}.${note.creation_date.slice(5,7)}.${note.creation_date.slice(0,4)}`}}</h4>
-      {{ timePassed(note.creation_date) }}
       <button class="log-button" type="button" @click="deleteNote(note.id)">Удалить</button>
-      <hr>
-      </div>
+    </div>
     </div>
   </section>
 </template>
@@ -50,6 +47,7 @@ export default {
       $.ajax({
         url: `http://127.0.0.1:8000/notes/${a}/delete`,
         type: 'DELETE',
+
         success: (response) => {
           alert('Заметка удалена')
           location.reload()
@@ -71,6 +69,9 @@ export default {
 </script>
 
 <style>
+.container {
+  width: 80%
+}
 h2 {
   text-align: center;
   margin-top: 10px;
@@ -78,6 +79,8 @@ h2 {
 .list {
   text-align: left;
   margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 .container {
   width: 80%;
