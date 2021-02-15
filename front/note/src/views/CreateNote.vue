@@ -54,10 +54,11 @@ export default {
   width: 70%;
   height: 20px;
   margin: 0 10px 10px 10px;
+  font-size: 20px;
 }
 .note-description {
   width: 70%;
   height: 300px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 </style>

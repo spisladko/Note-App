@@ -47,7 +47,6 @@ export default {
       $.ajax({
         url: `http://127.0.0.1:8000/notes/${a}/delete`,
         type: 'DELETE',
-
         success: (response) => {
           alert('Заметка удалена')
           location.reload()

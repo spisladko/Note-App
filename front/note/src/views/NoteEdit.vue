@@ -2,10 +2,10 @@
   <section>
       <div class="note-container">
         <div>
-        <input class="name" v-model="note.name" id="name" type="text"/>
+        <input class="note-name" v-model="note.name" id="name" type="text"/>
         </div>
         <div>
-        <textarea class="description" v-model="note.description" id="description" type="text"/>
+        <textarea class="note-description" v-model="note.description" id="description" type="text"/>
         </div>
         <button class="save-button" type="button" @click="updateNote(note.id)">Сохранить</button>
       </div>
@@ -37,18 +37,16 @@ export default {
     updateNote () {
       $.ajax({
         url: `http://127.0.0.1:8000/notes/${this.noteId}/update`,
-        type: 'PUT',
+        type: 'PATCH',
         data: {
           name: document.getElementById('name').value,
-          description: document.getElementById('description'.value)
+          description: document.getElementById('description').value
         },
         success: (response) => {
           alert('Заметка сохранена')
           this.$router.push('/notes')
         }
       })
-      console.log(document.getElementById('name').value)
-      console.log(document.getElementById('description').value)
     },
     timePassed (date) {
       return moment(date.slice(0, 19)).fromNow()
@@ -81,11 +79,15 @@ h2 {
   height: 30px;
   border-radius: 0.5em;
 }
-.name {
-  width: 100%
+.note-name {
+  width: 70%;
+  height: 20px;
+  margin: 0 10px 10px 10px;
+  font-size: 20px;
 }
-.description {
-  height: 50vh;
-  width: 100%
+.note-description {
+  width: 70%;
+  height: 300px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 </style>
