@@ -14,7 +14,6 @@
 
 <script>
 import $ from 'jquery'
-import moment from 'moment'
 
 export default {
   name: 'Notes',
@@ -47,9 +46,6 @@ export default {
           this.$router.push('/notes')
         }
       })
-    },
-    timePassed (date) {
-      return moment(date.slice(0, 19)).fromNow()
     }
   }
 }
